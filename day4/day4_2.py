@@ -11,23 +11,8 @@ class passport:
    def __init__(self, initString):
       for field in initString.split():
         attr,val = field.split(':')
-        if attr == 'byr':
-           self.setBYR(val)
-        elif attr == 'iyr':
-           self.setIYR(val)
-        elif attr == 'eyr':
-           self.setEYR(val)
-        elif attr == 'hgt':
-           self.setHGT(val)
-        elif attr == 'hcl':
-           self.setHCL(val)
-        elif attr == 'ecl':
-           self.setECL(val)
-        elif attr == 'pid':
-           self.setPID(val)
-        elif attr == 'cid':
-           self.setCID(val)
-        
+        setFunction = getattr(self, "set"+attr.upper())
+        setFunction(val)
       print (self)
 
    def __repr__(self):
