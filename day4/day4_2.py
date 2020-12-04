@@ -82,10 +82,12 @@ class passport:
 
    def isHCLValid(self):
       validChars = "0123456789abcdef"
+      #print (self.hcl)
       valid = self.hcl != None and \
              len(self.hcl) == 7 and \
              self.hcl[0] == '#' and \
-             (self.hcl[x] in validChars for x in range(1,8))
+             all(self.hcl[x] in validChars for x in range(1,7))
+      #print(valid)
       return valid
 
    def isECLValid(self):
@@ -97,7 +99,7 @@ class passport:
       validChars = "0123456789"
       return (self.pid != None and \
               len(self.pid) == 9 and \
-              (self.pid[x] in validChars for x in range(0,9)))
+              all(self.pid[x] in validChars for x in range(0,9)))
 
    def isCIDValid(self):
       return True
