@@ -11,8 +11,11 @@ class passport:
    def __init__(self, initString):
       for field in initString.split():
         attr,val = field.split(':')
-        setFunction = getattr(self, "set"+attr.upper())
-        setFunction(val)
+        if hasattr(self, attr):
+           setFunction = getattr(self, "set"+attr.upper())
+           setFunction(val)
+        else:
+           print("ATTRIBUTE NOT FOUND: ", attr)
       print (self)
 
    def __repr__(self):
