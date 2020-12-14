@@ -10,10 +10,10 @@ def calculatePaths(array):
    if size == 5:
       return 7
    print("LEN NOT SUPPORTED: ", size)
-   return 0
+   return 1
    
 
-with open("input.txt") as file:
+with open("input2.txt") as file:
    source = file.readlines()
 
 adapters = [0]
